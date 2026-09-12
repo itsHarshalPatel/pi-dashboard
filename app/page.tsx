@@ -278,7 +278,7 @@ export default function Dashboard() {
         style={{ color: "var(--muted)" }}
       >
         <a
-          href="https://github.com/<your-username>/pi-dashboard"
+          href="https://github.com/itsHarshalPatel/pi-dashboard"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline"
@@ -286,7 +286,7 @@ export default function Dashboard() {
           dashboard source
         </a>
         <a
-          href="https://github.com/<your-username>/pi-stats-api"
+          href="https://github.com/itsHarshalPatel/pi-stats-api"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline"
@@ -294,7 +294,7 @@ export default function Dashboard() {
           api source
         </a>
         <a
-          href="https://github.com/<your-username>"
+          href="https://github.com/itsHarshalPatel"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline"
