@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
-:root {
-  --bg: #0D1117;
-  --panel: #151B23;
-  --border: #2A323C;
-  --text: #E6EDF3;
-  --muted: #8B96A5;
-  --amber: #FF8A3D;
-  --cyan: #5EC8D8;
-}
+@custom-variant dark (&:is(.dark *));
 
+:root {
+  --bg: #0d1117;
+  --panel: #151b23;
+  --border: #2a323c;
+  --text: #e6edf3;
+  --muted: #8b96a5;
+  --amber: #ff8a3d;
+  --cyan: #5ec8d8;
+}
 * {
   box-sizing: border-box;
 }
@@ -25,6 +26,11 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
