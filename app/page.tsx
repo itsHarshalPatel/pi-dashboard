@@ -8,6 +8,7 @@ const MAX_POINTS = 20;
 
 type Stats = {
   cpu: { loadPercent: string };
+  temperature: { celsius: number };
   memory: { totalGB: string; usedGB: string; usedPercent: string };
   disk: {
     mount: string;
@@ -72,15 +73,16 @@ export default function Page() {
       stats.containers.length) *
     100;
 
+  const tempPercent = Math.min(
+    Math.max(((stats.temperature.celsius - 40) / (85 - 40)) * 100, 0),
+    100,
+  );
+
   const radarData = [
     { label: "CPU", value: cpu, color: "#f87171" },
     { label: "RAM", value: ram, color: "#4ade80" },
     { label: "DISK", value: disk, color: "#60a5fa" },
-    {
-      label: "UPTIME",
-      value: Math.min(uptimeDays * 10, 100),
-      color: "#fbbf24",
-    },
+    { label: "TEMP", value: tempPercent, color: "#fb923c" },
     { label: "SERVICES", value: runningPct, color: "#a78bfa" },
   ];
 
@@ -101,6 +103,7 @@ export default function Page() {
       hostname="harshalpi5"
       statusLabel={error ? "signal lost" : "online"}
       isError={error}
+      tempCelsius={stats.temperature.celsius}
       lineData={history}
       radarData={radarData}
       pieData={pieData}

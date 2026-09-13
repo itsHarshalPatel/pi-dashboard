@@ -414,6 +414,7 @@ export default function BentoDashboard({
   hostname,
   statusLabel,
   isError,
+  tempCelsius,
   lineData,
   radarData,
   pieData,
@@ -422,6 +423,7 @@ export default function BentoDashboard({
   hostname: string;
   statusLabel: string;
   isError: boolean;
+  tempCelsius: number;
   lineData: HistoryPoint[];
   radarData: ChartItem[];
   pieData: ChartItem[];
@@ -441,16 +443,23 @@ export default function BentoDashboard({
               Self-hosted Raspberry Pi 5 — live system overview
             </p>
           </div>
-          <div className="flex items-center gap-2 border-[3px] border-black dark:border-white px-3 py-2 bg-white dark:bg-zinc-900">
-            <span
-              className={cn(
-                "h-2.5 w-2.5 border-2 border-black dark:border-white",
-                isError ? "bg-red-400" : "bg-yellow-300",
-              )}
-            />
-            <span className="font-bold text-xs uppercase font-mono text-black dark:text-white">
-              {statusLabel}
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 border-[3px] border-black dark:border-white px-3 py-2 bg-white dark:bg-zinc-900">
+              <span className="font-bold text-xs uppercase font-mono text-black dark:text-white">
+                🌡 {tempCelsius}°C
+              </span>
+            </div>
+            <div className="flex items-center gap-2 border-[3px] border-black dark:border-white px-3 py-2 bg-white dark:bg-zinc-900">
+              <span
+                className={cn(
+                  "h-2.5 w-2.5 border-2 border-black dark:border-white",
+                  isError ? "bg-red-400" : "bg-yellow-300",
+                )}
+              />
+              <span className="font-bold text-xs uppercase font-mono text-black dark:text-white">
+                {statusLabel}
+              </span>
+            </div>
           </div>
         </header>
 
@@ -519,6 +528,14 @@ export default function BentoDashboard({
             className="hover:underline hover:text-black dark:hover:text-white"
           >
             api source
+          </a>
+          <a
+            href="https://harshalpatel.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline hover:text-black dark:hover:text-white"
+          >
+            Portfolio
           </a>
         </div>
       </div>
